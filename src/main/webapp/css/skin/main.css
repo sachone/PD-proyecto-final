@@ -42,7 +42,7 @@ body{
 
 
 .informaInicio {
-margin-top: 5px;
+margin-top: 10px;
 }
 
 
@@ -64,11 +64,13 @@ margin-top: 5px;
     width: 400px;
     padding-left: 10px;
     color:black;
+    background-image: url(../../images/logo.png);
+    background-repeat: no-repeat;
 }
 
 
 .parteUsu{
-    padding-top: 20px;
+    padding-top: 70px;
     padding-left: 20px;
 }
 
@@ -99,7 +101,7 @@ margin-top: 5px;
 /*PRINCIPAL*/
 .proyectosMostrar{
     margin-top: 80px;
-    margin-left: 10px;
+    margin-left: 70px;
    
 }.proyectoCaja{
     margin-top: 30px;

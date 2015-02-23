@@ -21,6 +21,7 @@
     <div class="row">
         <div class=" col-sm-6 col-md-4 col-md-offset-4">
             <div class="formLogueo">
+                
                 <form class="form-signin" id="loginForm" action="jsp" role="form" method="post">                                    
                     <input type="hidden" name="ob" value="usuario" />
                     <input type="hidden" name="op" value="login02" />
