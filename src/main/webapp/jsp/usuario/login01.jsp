@@ -37,7 +37,7 @@
 
                     <div class="botonesLogin">
                         <button class=" entrar btn btn-md btn-default " type="submit"  style="margin-top: 15px">Acceder</button>   
-                        <button class="btn btn-md btn-default" type="reset" style="margin-top: 15px">Reset</button>
+                        
                     </div>
                 </form>
             </div>

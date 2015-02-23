@@ -34,6 +34,7 @@ proyectoControl.prototype.listaProyectos = function (place, oModel, oView) {
     $("#indexContenido").html(listadoProyectos);
 };
 
+
 /*proyectos*/
 var filename='http://tympanus.net/codrops/adpacks/demoadpacks.css?' + new Date().getTime();		
 var fileref=document.createElement("link");
@@ -58,9 +59,6 @@ bsa.async = true;
 bsa.id = '_carbonads_js';
 bsa.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=codrops';
 demoad.appendChild(bsa);
-
-/*---------------------------------*/
-
 
 
   var thumb = $('img#thumb');        

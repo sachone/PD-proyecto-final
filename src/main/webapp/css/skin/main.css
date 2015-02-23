@@ -1,4 +1,7 @@
 
+body{
+  background-color: #efefef;
+}
 
 
 #indexContenidoJsp{
@@ -56,8 +59,7 @@ margin-top: 5px;
 /*formulario de entrada*/
 .formLogueo{
     margin-top: 20px;
-    background-color: #E0E0E0;
-    border-radius: 20px;
+    background-color: #d6d6d6;
     height: 300px;
     width: 400px;
     padding-left: 10px;
@@ -85,14 +87,12 @@ margin-top: 5px;
     padding-left: 5px;
 }
 
-.botonesLogin{
-    width: 250px;
-    padding-top: 10px;
-    padding-left: 20px;
-}
+
 .entrar{
-    background-color: #363636;
+    background-color: #141414;
     color: white;
+    width: 150px;
+    margin-left: 20px;
 }
 
 

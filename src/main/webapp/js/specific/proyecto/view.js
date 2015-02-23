@@ -114,13 +114,14 @@ proyectoView.prototype.getProyectosList = function (json) {
     for (i = 0; i < long; i++) {
         id = json.list[i].id;
         titulo = json.list[i].titulo;
+        image = json.list[i].portada;
         nombre = json.list[i].obj_alumno.nombre;
         apellidos = json.list[i].obj_alumno.apellidos;
         descripcion = json.list[i].descripcion;
         tags = json.list[i].tags;
         fecha = json.list[i].fecha;
         listado += "<div class='proyectosCaja ver view-third col-md-4'>";
-        listado += "<img src=" + imagen + ">";
+        listado += "<img src='" + image + "'>";
         listado += "<div class='mask'>";
         listado += "<h2>" + titulo + "</h2>";
         listado += "<p>" + descripcion + "</p>";
@@ -130,5 +131,6 @@ proyectoView.prototype.getProyectosList = function (json) {
 
     listado += "</div>";
     return listado;
+  
 };
 
