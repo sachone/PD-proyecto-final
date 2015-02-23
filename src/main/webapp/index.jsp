@@ -73,10 +73,8 @@
                     <ul class="nav navbar-nav">
                         <li><a href="jsp?ob=usuario&op=inicio">Inicio <span class="sr-only">(current)</span></a></li>
                     </ul>
-                    <ul class="nav navbar-nav">
-                        <li><a href="jsp#/proyecto/mostrar">Proyectos<span class="sr-only">(current)</span></a></li>
-                    </ul>
-                    <%if (user.getId_tipousuario() ==1){%>
+                    
+                    <%if (user != null){%>
                     <ul class="nav navbar-nav navbar-left">
                         <jsp:include page="jsp/menuSuperior.jsp" />
                     </ul>
