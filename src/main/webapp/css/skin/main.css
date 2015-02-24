@@ -60,8 +60,8 @@ margin-top: 10px;
 .formLogueo{
     margin-top: 20px;
     background-color: #d6d6d6;
-    height: 300px;
-    width: 400px;
+    height: 320px;
+    width: 420px;
     padding-left: 10px;
     color:black;
     background-image: url(../../images/logo.png);
@@ -70,12 +70,12 @@ margin-top: 10px;
 
 
 .parteUsu{
-    padding-top: 70px;
+    padding-top: 80px;
     padding-left: 20px;
 }
 
 #inputLogin{
-    width: 280px;
+    width: 320px;
     padding-left: 5px;
 }
 
@@ -85,7 +85,7 @@ margin-top: 10px;
 }
 
 #inputPassword{
-    width: 280px;
+    width: 320px;
     padding-left: 5px;
 }
 
