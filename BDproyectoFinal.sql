@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 23-02-2015 a las 13:19:29
+-- Tiempo de generación: 07-06-2015 a las 11:39:29
 -- Versión del servidor: 5.5.39
 -- Versión de PHP: 5.4.33
 
@@ -30,16 +30,38 @@ CREATE TABLE IF NOT EXISTS `alumno` (
 `id` int(11) NOT NULL COMMENT 'Identificador',
   `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Nombre',
   `apellidos` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Apellidos',
-  `ciclo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ciclo',
-  `tutor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Tutor'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_ciclo` int(11) DEFAULT NULL COMMENT 'Ciclo',
+  `id_tutor` int(11) DEFAULT NULL COMMENT 'Tutor'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `alumno`
 --
 
-INSERT INTO `alumno` (`id`, `nombre`, `apellidos`, `ciclo`, `tutor`) VALUES
-(1, 'Victor', 'López Tamarit', 'DAW', 'Rafael Aznar');
+INSERT INTO `alumno` (`id`, `nombre`, `apellidos`, `id_ciclo`, `id_tutor`) VALUES
+(1, 'Victor', 'López Tamarit', 1, 2),
+(2, 'Juan Manuel', 'Guisado Igualada', 1, 1),
+(3, 'Alvaro', 'Crego Tapia', 1, 1),
+(4, 'Armando', 'Maya Gomis', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ciclo`
+--
+
+CREATE TABLE IF NOT EXISTS `ciclo` (
+`id` int(11) NOT NULL COMMENT 'Identificador',
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Nombre'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `ciclo`
+--
+
+INSERT INTO `ciclo` (`id`, `nombre`) VALUES
+(1, 'DAW'),
+(2, 'ASIR');
 
 -- --------------------------------------------------------
 
@@ -572,23 +594,26 @@ INSERT INTO `operacion` (`id`, `descripcion`, `id_objeto`, `id_tipooperacion`) V
 --
 
 CREATE TABLE IF NOT EXISTS `proyecto` (
-`id` int(11) NOT NULL,
-  `titulo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `id_alumno` int(11) DEFAULT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fecha` date DEFAULT NULL,
-  `portada` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+`id` int(11) NOT NULL COMMENT 'ID',
+  `titulo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Título',
+  `id_alumno` int(11) DEFAULT NULL COMMENT 'Alumno',
+  `descripcion` mediumtext COLLATE utf8mb4_unicode_ci COMMENT 'Descripción',
+  `nota` int(11) DEFAULT NULL COMMENT 'Nota',
+  `tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'etiquetas',
+  `fecha` date DEFAULT NULL COMMENT 'Fecha',
+  `portada` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Portada',
+  `memoria` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Memoria'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `proyecto`
 --
 
-INSERT INTO `proyecto` (`id`, `titulo`, `id_alumno`, `descripcion`, `tags`, `fecha`, `portada`) VALUES
-(1, 'Proyectos DAW', 1, 'Proyecto en java para administrar los proyectos de la clase de DAW', 'victoe, lopez, java, daw', '2015-02-20', 'http://1.bp.blogspot.com/-7NdF5Eho91I/T0pA2--5jOI/AAAAAAAAAJw/Zgl7QAL6p4g/s320/tumblr_lzgghhycUb1qkofmuo3_1280.jpg'),
-(2, 'Proyecto de prueba', 1, 'Esto es una prueba para ver si tdo lo montado funciona correctamente', 'victor, lopez, tamarit', '2015-02-12', 'http://drink-team.com.mx/wp-content/uploads/2014/05/5.-HIPSTER.jpg'),
-(3, 'Proyecto de prueba', 1, 'Esto es un proyecto de prueba, se autodestruira', 'prueba, pepe, java, victor', '2015-02-22', 'http://drink-team.com.mx/wp-content/uploads/2014/05/8.-HIPSTER.jpg');
+INSERT INTO `proyecto` (`id`, `titulo`, `id_alumno`, `descripcion`, `nota`, `tags`, `fecha`, `portada`, `memoria`) VALUES
+(9, 'Java Maker', 3, 'JavaMaker es una aplicación web de generación y gestión de mantenimientos en losque se puede manipular texto, fechas y números tanto decimales como enteros.\r\nUtiliza Ajax para mejorar la rapidez y optimizar al máximo las peticiones al servidor.Posee un sistema de gestión de usuarios, en el cual, el usuario podrá ponerse su propia contraseña, conservando así la privacidad de la contraseña.Incorpora un sistema de permisos para que no todo los usuarios puedan crea rmantenimientos .Con una interfaz agradable, cómoda e intuitiva los usuarios podrán trabajar con toda comodidad, además es completamente responsiva así que se adaptará a la perfección acualquier dispositivo tanto PCs, portátiles, tables y smartphones.', 10, 'pepe', '2014-06-19', 'https://dl.dropboxusercontent.com/u/50068600/proyectosDAW/portadas/javamaker.jpg', 'https://dl.dropboxusercontent.com/u/50068600/proyectosDAW/pdfs/Javamaker.pdf'),
+(10, 'Voreal', 4, 'Voreal es una aplicación web realizada a medida enfocada a aumentar la productividad dela empresa manteniendo un seguimiento de clientes y empleados así como de la contabilidad.\r\nEs una aplicación de una sola pagina gracias a la utilización de Ajax estas acaciones se ejecutan en el cliente, es decir, en el navegador de los usuarios mientras se mantiene la comunicación asíncrona con el servidor en segundo plano. De esta forma es posible realizar cambios sobre las páginas sin necesidad de recargarlas, mejorando la interactividad, velocidad y usabilidad en la aplicación.', 8, 'proyecto, Armando, Maya, DAW, Voreal', '2015-06-21', 'https://dl.dropboxusercontent.com/u/50068600/proyectosDAW/portadas/portada-voreal.jpg', 'https://dl.dropboxusercontent.com/u/50068600/proyectosDAW/pdfs/voreal-documentacion3.pdf'),
+(11, 'ProLibrary', 2, 'proLibrary es una aplicacion desarrollada en Java.\r\nSu principal enfoque y uso es la administración y la gestion de una base de datos de una tienda de libros o libreria.', 7, 'proyecto', '2015-06-14', 'https://dl.dropboxusercontent.com/u/50068600/proyectosDAW/portadas/library-logo.png', 'https://www.dropbox.com/s/7lb5lg24l1as6bh/memoria.odt?dl=0'),
+(12, 'Proyectos DAW', 1, 'Proyectos DAw es una aplicacion Java y javascript para el instituto AusiasMarch que se basa en el mantenimiento de los proyectos de los alumnos del cico de desarrollo de aplicaciones Web. es una aplicación responsiva y con un toque de blog llamativo para que la gente pueda ver los proyectos de otros años.', 9, 'victor, proyectos daw, admin', '2015-06-18', 'https://dl.dropboxusercontent.com/u/50068600/proyectosDAW/portadas/portadaPD.jpg', '#');
 
 -- --------------------------------------------------------
 
@@ -635,6 +660,26 @@ INSERT INTO `tipousuario` (`id`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tutor`
+--
+
+CREATE TABLE IF NOT EXISTS `tutor` (
+`id` int(11) NOT NULL COMMENT 'Identificador',
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Nombre',
+  `apellidos` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Apellidos'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tutor`
+--
+
+INSERT INTO `tutor` (`id`, `nombre`, `apellidos`) VALUES
+(1, 'Rafael', 'Aznar'),
+(2, 'Jose Ramón', 'Ruiz');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -643,7 +688,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `login` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Usuario',
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Contraseña',
   `id_tipousuario` int(11) DEFAULT NULL COMMENT 'Tipo usuario'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -651,7 +696,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id`, `login`, `password`, `id_tipousuario`) VALUES
 (1, 'victor', 'victor', 1),
-(2, 'prueba', 'prueba', 1);
+(3, 'administrador', 'usuario1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -661,6 +706,12 @@ INSERT INTO `usuario` (`id`, `login`, `password`, `id_tipousuario`) VALUES
 -- Indices de la tabla `alumno`
 --
 ALTER TABLE `alumno`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ciclo`
+--
+ALTER TABLE `ciclo`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -688,6 +739,12 @@ ALTER TABLE `tipousuario`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `tutor`
+--
+ALTER TABLE `tutor`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -701,7 +758,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `ciclo`
+--
+ALTER TABLE `ciclo`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `operacion`
 --
@@ -711,7 +773,7 @@ MODIFY `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'ID Operación',AUTO_INCREMEN
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `tipooperacion`
 --
@@ -723,10 +785,15 @@ MODIFY `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMEN
 ALTER TABLE `tipousuario`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT de la tabla `tutor`
+--
+ALTER TABLE `tutor`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador',AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador',AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

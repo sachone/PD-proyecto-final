@@ -27,17 +27,6 @@ alumnoView.prototype.getClassNameAlumno = function () {
 var oAlumnoView = new alumnoView('alumno');
 
 
-alumnoView.prototype.loadButtons = function (id) {
-
-    var botonera = "";
-    botonera += '<div class="btn-toolbar" role="toolbar"><div class="btn-group btn-group-xs">';
-    botonera += '<a class="btn btn-default view" id="' + id + '"  href="jsp#/' + this.clase + '/view/' + id + '"><i class="glyphicon glyphicon-th-list"></i></a>';
-    botonera += '<a class="btn btn-default edit" id="' + id + '"  href="jsp#/' + this.clase + '/edit/' + id + '"><i class="glyphicon glyphicon-file"></i></a>';
-    botonera += '<a class="btn btn-default remove" id="' + id + '"  href="jsp#/' + this.clase + '/remove/' + id + '"><i class="glyphicon glyphicon-trash"></i></a>';
-    botonera += '</div></div>';
-    return botonera;
-
-};
 alumnoView.prototype.loadFormValues = function (valores, campos) {
     this.doFillForm(valores, campos);
 };
@@ -52,41 +41,41 @@ alumnoView.prototype.getFormValues = function () {
 
 alumnoView.prototype.doEventsLoading = function () {
     var thisObject = this;
-    $('#alumnoForm #obj_estado_button').unbind('click');
-    $("#alumnoForm #obj_estado_button").click(function () {
-        var oControl = oEstadoControl;  //para probar dejar alumno
+    $('#alumnoForm #obj_ciclo_button').unbind('click');
+    $("#alumnoForm #obj_ciclo_button").click(function () {
+        var oControl = oCicloControl;  //para probar dejar ciclo
         //vista('alumno').cargaModalBuscarClaveAjena('#modal01', "alumno");
 
         $("#alumnoForm").append(thisObject.getEmptyModal());
-        util().loadForm('#modal01', thisObject.getFormHeader('Elección de alumno'), "", thisObject.getFormFooter(), true);
+        util().loadForm('#modal01', thisObject.getFormHeader('Elección de ciclo'), "", thisObject.getFormFooter(), true);
 
         $('#alumnoForm').append(thisObject.getEmptyModal());
 
-        oControl.list('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), true, oEstadoModel, oEstadoView);
+        oControl.list('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), true, oCicloModel, oCicloView);
         oControl.modalListEventsLoading('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), function (id) {
-            $('#obj_estado_id').val(id).change();
-            $('#obj_estado_desc').text(decodeURIComponent(oEstadoModel.getMeAsAForeignKey(id)));
+            $('#obj_ciclo_id').val(id).change();
+            $('#obj_ciclo_desc').text(decodeURIComponent(oCicloModel.getMeAsAForeignKey(id)));
             $('#modal01').modal('hide');
 
-        },oEstadoModel, oEstadoView);
+        },oCicloModel, oCicloView);
         return false;
     });
-    $('#alumnoForm #obj_tipoalumno_button').unbind('click');
-    $("#alumnoForm #obj_tipoalumno_button").click(function () {
-        var oControl = oTipoalumnoControl;
+    $('#alumnoForm #obj_tutor_button').unbind('click');
+    $("#alumnoForm #obj_tutor_button").click(function () {
+        var oControl = oTutorControl;
 
         $("#alumnoForm").append(thisObject.getEmptyModal());
-        util().loadForm('#modal01', thisObject.getFormHeader('Elección de tipo de alumno'), "", thisObject.getFormFooter(), true);
+        util().loadForm('#modal01', thisObject.getFormHeader('Elección de tutor'), "", thisObject.getFormFooter(), true);
 
         $('#alumnoForm').append(thisObject.getEmptyModal());
 
-        oControl.list('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), true, oTipoalumnoModel, oTipoalumnoView);
+        oControl.list('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), true, oTutorModel, oTutorView);
         oControl.modalListEventsLoading('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), function (id) {
-            $('#obj_tipoalumno_id').val(id).change();
-            $('#obj_tipoalumno_desc').text(decodeURIComponent(oTipoalumnoModel.getMeAsAForeignKey(id)));
+            $('#obj_tutor_id').val(id).change();
+            $('#obj_tutor_desc').text(decodeURIComponent(oTutorModel.getMeAsAForeignKey(id)));
             $('#modal01').modal('hide');
 
-        },oTipoalumnoModel, oTipoalumnoView);
+        },oTutorModel, oTutorView);
         return false;
     });
     $('#contenido_button').unbind('click');

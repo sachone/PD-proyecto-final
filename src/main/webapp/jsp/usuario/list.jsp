@@ -27,108 +27,27 @@
     Connection connection = (Connection) request.getAttribute("connection");
 %>
 <div class="row">
-    <div class="col-md-12">
-        <div class="table">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#pane1" data-toggle="tab">Paginación</a></li>                
-
-            </ul>
-            <div class="tab-content">
-                <br />
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div id="registers"></div>
-                    </div>
-                    <div class="col-md-4">
-                        <div id="order"></div> 
-                    </div>
-                    <div class="col-md-4">
-                        <div id="filter"></div>   
-                    </div>
-                </div>
-
-                <div id="pane1" class="tab-pane active">
-                    <div class="row">
-
-                        <div class="col-md-2">
-                            <div class="panel panel-default">                                 
-                                <div class="panel-heading">Nuevo</div>
-                                <div class="panel-body">
-                                    <br />
-                                    <div class="text-center">
-                                        <a class="btn btn-primary" href='jsp#/<%=strNombreMantenimiento%>/new'>Nuevo <%=strNombreMantenimiento%></a> 
-                                    </div>
-                                    <br />
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-2">
-                            <div class="panel panel-default" style="width: 150px">
-                                <!-- Default panel contents -->
-                                <div class="panel-heading">Campos visibles</div>
-                                <div class="panel-body" style="width: 100px">     
-                                    <form class="navbar-form navbar-right" role="form" action="Controller" method="post" id="visibleFieldsForm">
-                                        <select id="selectVisibleFields" class="form-control" name="filter" style="width:70px">
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="panel panel-default">
-                                <!-- Default panel contents -->
-                                <div class="panel-heading">Registros por página</div>
-                                <div class="panel-body">
-                                    <div class="text-center">
-                                        <div id="nrpp"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="panel panel-default">
-                                    <!-- Default panel contents -->
-                                    <div class="panel-heading">Filtro</div>
-                                    <div class="panel-body">
-                                        <form class="navbar-form navbar-right" role="form" action="Controller" method="post" id="empresaForm">
-                                            <select id="selectFilter" class="form-control" name="filter" style="width: 160px">
-                                            </select>
-                                            <select id="selectFilteroperator" class="form-control" name="filteroperator" style="width: 200px">
-                                                <option value="like">contiene</option>
-                                                <option value="notlike">no contiene</option>
-                                                <option value="equals">es igual a</option>
-                                                <option value="notequalto">es distinto de</option>
-                                                <option value="less">es menor que</option>
-                                                <option value="lessorequal">es menor o igual que</option>
-                                                <option value="greater">es mayor que</option>
-                                                <option value="greaterorequal">es mayor o igual que</option> 
-                                            </select>
-                                            <input id="inputFiltervalue" class="form-control" name="filtervalue" type="text" size="20" maxlength="50" value=""  width="100" style="width: 140px" placeholder="Valor"/>
-                                            <input type="submit" class="btn" id="btnFiltrar" name="btnFiltrar" value="Filtrar " />
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-        </div>
+    
+    <div class="col-md-4 col-md-offset-8">
+        <div id="filter"></div>   
     </div>
-
 </div>
+<div class="botonera-superior-list row ">
+    <a class="boton-nuevo col-md-2" href='jsp#/<%=strNombreMantenimiento%>/new'><i class="glyphicon glyphicon-plus"></i> Nuevo <%=strNombreMantenimiento%></a> 
+    
+    <form class=" col-md-4 navbar-form navbar-right" role="form" action="Controller" method="post" id="proyectoForm">
+        <select id="selectFilter" class="form-control" name="filter" style="width: 160px">
+        </select>
+        <select id="selectFilteroperator" class="form-control" name="filteroperator" style="width: 200px">
+            <option value="like">contiene</option>
+        </select>
+        <input id="inputFiltervalue" class="form-control" name="filtervalue" type="text" size="20" maxlength="50" value="" style="width: 140px" placeholder="Valor"/>
+        <input type="submit" class="btn" id="btnFiltrar" name="btnFiltrar" value="Filtrar" />
+    </form>
+</div>
+
 <div class="row">
-    <div class="col-md-12" id="menuLateralList">
+    <div class="col-md-12 col-xs-12" id="menuLateralList">
         <table class="table table-responsive table-hover table-striped table-condensed">
             <thead id="tableHeaders"></thead>
             <tbody id="tableBody"></tbody>
@@ -166,4 +85,4 @@
                 <div class="modal-footer"></div>
             </div>                
         </div>
-    </div>
+    </div> 

@@ -22,10 +22,7 @@ import java.util.Date;
 import net.daw.bean.generic.implementation.BeanGenImpl;
 import net.daw.bean.publicinterface.BeanInterface;
 
-/**
- *
- * @author al038513
- */
+
 public class ProyectoBeanGenSpImpl extends BeanGenImpl implements BeanInterface {
 
     @Expose
@@ -37,11 +34,15 @@ public class ProyectoBeanGenSpImpl extends BeanGenImpl implements BeanInterface 
     @Expose
     private String descripcion;
     @Expose
+    private Integer nota;
+    @Expose
     private String tags;
     @Expose
     private Date fecha;
     @Expose
     private String portada;
+    @Expose
+    private String memoria;
 
     public String getTitulo() {
         return titulo;
@@ -75,6 +76,14 @@ public class ProyectoBeanGenSpImpl extends BeanGenImpl implements BeanInterface 
         this.descripcion = descripcion;
     }
 
+    public Integer getNota() {
+        return nota;
+    }
+
+    public void setNota(Integer nota) {
+        this.nota = nota;
+    }
+
     public String getTags() {
         return tags;
     }
@@ -98,6 +107,15 @@ public class ProyectoBeanGenSpImpl extends BeanGenImpl implements BeanInterface 
     public void setPortada(String portada) {
         this.portada = portada;
     }
+
+    public String getMemoria() {
+        return memoria;
+    }
+
+    public void setMemoria(String memoria) {
+        this.memoria = memoria;
+    }
+
     
 
 }

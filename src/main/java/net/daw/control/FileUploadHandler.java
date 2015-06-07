@@ -20,9 +20,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  * @author Javin Paul
  */
 public class FileUploadHandler extends HttpServlet {
-    private final String UPLOAD_DIRECTORY = "../../../../webapp/css/images";
+    /*private final String UPLOAD_DIRECTORY = "../../../../webapp/css/images";*/
     /*private final String UPLOAD_DIRECTORY = "C:\\Users\\worten\\Documents\\NetBeansProjects\\proyectosDAW\\src\\main\\webapp\\css\\images";*/
-  
+    private final String UPLOAD_DIRECTORY = "http://proyectosdaw-vlopez.rhcloud.com/proyectosdaw/assets";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

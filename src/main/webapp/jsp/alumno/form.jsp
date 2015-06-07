@@ -38,18 +38,26 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label" for="ciclo">Ciclo </label> 
-        <div class="col-sm-6">              
-            <input type="text" id="ciclo" class="form-control"  name="ciclo" size="15" placeholder="Ciclo que curso el alumno" />
+     <div class="form-group">
+        <label class="col-sm-2 control-label" for="obj_ciclo_id">Ciclo: </label> 
+        <div class="col-sm-2">              
+            <input readonly  class="form-control input-mini"  id="obj_ciclo_id"  name="id_ciclo" type="text" size="5" maxlength="5" />  
         </div>
+        <div class="col-sm-1">              
+            <a class="btn btn-primary btn-sm" id="obj_ciclo_button" href="#"><i class="glyphicon glyphicon-search"></i></a>
+        </div>        
+        <label class="col-sm-7" for="obj_ciclo_desc" id="obj_ciclo_desc"></label>                     
     </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label" for="tutor">Tutor </label> 
-        <div class="col-sm-4">              
-            <input type="text" id="tutor" class="form-control"  name="tutor" size="15" placeholder="Tutor de proyecto del alumno" />
+     <div class="form-group">
+        <label class="col-sm-2 control-label" for="obj_tutor_id">Tutor: </label> 
+        <div class="col-sm-2">              
+            <input readonly  class="form-control input-mini"  id="obj_tutor_id"  name="id_tutor" type="text" size="5" maxlength="5" />  
         </div>
+        <div class="col-sm-1">              
+            <a class="btn btn-primary btn-sm" id="obj_tutor_button" href="#"><i class="glyphicon glyphicon-search"></i></a>
+        </div>        
+        <label class="col-sm-7" for="obj_tutor_desc" id="obj_tutor_desc"></label>                     
     </div>
 
     <div class="form-group">
@@ -103,28 +111,25 @@
                                 }
                             }
                         },
-                        ciclo: {
+                        id_ciclo: {
                             validators: {
                                 notEmpty: {
-                                    message: 'Debe introducir un ciclo'
+                                    message: 'Debe elegir un ciclo'
                                 },
-                                tringLength: {
-                                    max: 255,
-                                    message: 'El ciclo deben tener como máximo 255 caracteres'
+                                integer: {
+                                    message: 'El identificador de ciclo debe ser un entero'
                                 }
                             }
                         },
-                        tutor: {
+                        id_tutor: {
                             validators: {
                                 notEmpty: {
-                                    message: 'Debe introducir un tutor de proyecto'
+                                    message: 'Debe elegir un tutor'
                                 },
-                                tringLength: {
-                                    max: 255,
-                                    message: 'El nombre del tutor debe tener como máximo 255 caracteres'
+                                integer: {
+                                    message: 'El identificador de tutor debe ser un entero'
                                 }
                             }
-
                         }
                     }
                 }),

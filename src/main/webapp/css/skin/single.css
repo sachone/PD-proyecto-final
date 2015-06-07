@@ -1,0 +1,82 @@
+
+*{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.single-columnas{
+    margin-bottom: 45px !important;
+}
+.contenido-single{
+	background-color: white;
+	margin-top: 15px;
+}
+
+.contenido-derecha, .contenido{
+    padding: 0;
+}
+
+
+.contenido-single h3, .contenido-single h1{
+ 	font-family: 'Oswald', sans-serif;
+}
+
+.single-titulo{
+    text-align: center;
+    background: #BA1B27;
+    color: white;
+    height: 80px;
+}
+.single-titulo-extra{
+    height: 80px;
+}
+.single-titulo h1{
+	margin-top: 20px !important;
+}
+.single-infor{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.single-infor img{
+    width: 75%;
+    max-height: 350px;
+}
+
+.descripcion-single{
+    text-align: left;
+    margin-left: 65px;
+    margin-top: 10px;
+}
+.descripcion-single p{
+	width: 85%;
+}
+
+.single-extra-inf{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.caja-extra-inf{
+	background-color: #F1F1F1;
+	width: 60%;
+	height: 260px;
+	padding-top: 20px;
+}
+.caja-extra-inf span{
+	font-weight: 100;
+}
+.caja-extra-inf p{
+	margin-left: 30px;
+	font-weight: bold;
+}
+
+.seccion-memoria{
+	margin-top: 60px;
+}
+.single-memoria{
+    background-color: aliceblue;
+    width: 70%;
+    padding: 20px;
+}
+
+

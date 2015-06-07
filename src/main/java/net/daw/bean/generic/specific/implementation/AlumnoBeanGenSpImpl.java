@@ -24,13 +24,17 @@ import com.google.gson.annotations.Expose;
 public class AlumnoBeanGenSpImpl extends BeanGenImpl implements BeanInterface {
 
     @Expose
-    private String nombre = "";
+    private String nombre;
     @Expose
     private String apellidos = "";
-    @Expose
-    private String ciclo = "";
-    @Expose
-    private String tutor = "";
+    @Expose(serialize = false)
+    private Integer id_ciclo = 0; //importante inicializar a 0 las claves ajenas
+    @Expose(deserialize = false)
+    private CicloBeanGenSpImpl obj_ciclo = null;
+    @Expose(serialize = false)
+    private Integer id_tutor = 0; //importante inicializar a 0 las claves ajenas
+    @Expose(deserialize = false)
+    private TutorBeanGenSpImpl obj_tutor = null;
 
     public String getNombre() {
         return nombre;
@@ -48,23 +52,39 @@ public class AlumnoBeanGenSpImpl extends BeanGenImpl implements BeanInterface {
         this.apellidos = apellidos;
     }
 
-    public String getCiclo() {
-        return ciclo;
+    public Integer getId_ciclo() {
+        return id_ciclo;
     }
 
-    public void setCiclo(String ciclo) {
-        this.ciclo = ciclo;
+    public void setId_ciclo(Integer id_ciclo) {
+        this.id_ciclo = id_ciclo;
     }
 
-    public String getTutor() {
-        return tutor;
+    public CicloBeanGenSpImpl getObj_ciclo() {
+        return obj_ciclo;
     }
 
-    public void setTutor(String tutor) {
-        this.tutor = tutor;
+    public void setObj_ciclo(CicloBeanGenSpImpl obj_ciclo) {
+        this.obj_ciclo = obj_ciclo;
     }
+
+    public Integer getId_tutor() {
+        return id_tutor;
+    }
+
+    public void setId_tutor(Integer id_tutor) {
+        this.id_tutor = id_tutor;
+    }
+
+    public TutorBeanGenSpImpl getObj_tutor() {
+        return obj_tutor;
+    }
+
+    public void setObj_tutor(TutorBeanGenSpImpl obj_tutor) {
+        this.obj_tutor = obj_tutor;
+    }
+
+  
+  
     
-
-    
-
 }

@@ -25,16 +25,7 @@ proyectoView.prototype.getClassNameProyecto = function () {
     return this.getClassName() + "Vista";
 };
 var oProyectoView = new proyectoView('proyecto');
-proyectoView.prototype.loadButtons = function (id) {
 
-    var botonera = "";
-    botonera += '<div class="btn-toolbar" role="toolbar"><div class="btn-group btn-group-xs">';
-    botonera += '<a class="btn btn-default view" id="' + id + '"  href="jsp#/' + this.clase + '/view/' + id + '"><i class="glyphicon glyphicon-th-list"></i></a>';
-    botonera += '<a class="btn btn-default edit" id="' + id + '"  href="jsp#/' + this.clase + '/edit/' + id + '"><i class="glyphicon glyphicon-file"></i></a>';
-    botonera += '<a class="btn btn-default remove" id="' + id + '"  href="jsp#/' + this.clase + '/remove/' + id + '"><i class="glyphicon glyphicon-trash"></i></a>';
-    botonera += '</div></div>';
-    return botonera;
-};
 proyectoView.prototype.loadFormValues = function (valores, campos) {
     this.doFillForm(valores, campos);
 };
@@ -53,7 +44,7 @@ proyectoView.prototype.doEventsLoading = function () {
         //vista('proyecto').cargaModalBuscarClaveAjena('#modal01', "proyecto");
 
         $("#proyectoForm").append(thisObject.getEmptyModal());
-        util().loadForm('#modal01', thisObject.getFormHeader('Elección de proyecto'), "", thisObject.getFormFooter(), true);
+        util().loadForm('#modal01', thisObject.getFormHeader('Elección de alumno'), "", thisObject.getFormFooter(), true);
         $('#proyectoForm').append(thisObject.getEmptyModal());
         oControl.list('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), true, oAlumnoModel, oAlumnoView);
         oControl.modalListEventsLoading('#modal01 #modal-body', param().defaultizeUrlObjectParameters({}), function (id) {
@@ -108,8 +99,8 @@ proyectoView.prototype.okValidation = function (f) {
 proyectoView.prototype.getProyectosList = function (json) {
 
     var long = json.list.length;
-    listado = "<div class=' main proyectosMostrar col-md-12'>";
-    imagen = "'css/images/maintenance.jpg'";
+    listado = "<div class=' main proyectos col-md-12'>";
+    /*listado +="<div class='separador'>Proyectos de DAW</div>";*/
     contador = 0;
     for (i = 0; i < long; i++) {
         id = json.list[i].id;
@@ -120,17 +111,98 @@ proyectoView.prototype.getProyectosList = function (json) {
         descripcion = json.list[i].descripcion;
         tags = json.list[i].tags;
         fecha = json.list[i].fecha;
-        listado += "<div class='proyectosCaja ver view-third col-md-4'>";
-        listado += "<img src='" + image + "'>";
-        listado += "<div class='mask'>";
-        listado += "<h2>" + titulo + "</h2>";
-        listado += "<p>" + descripcion + "</p>";
-        listado += '<a class="info" id="' + id + '"  href="jsp#/' + this.clase + '/view/' + id + '">Leer mar</a>';;
-        listado += "</div></div>";
+        imageeen = json.list[i].imagen;
+
+
+        /*listado +="<div class='caja-proyecto col-sm-4'>";
+         listado +="<div class='image-proyecto'>";
+         listado +="<a id='" + id + "'  href='jsp#/" + this.clase + "/mostrar/" + id + "'><img class='img-responsive' src='"+image+"'/></a>";
+         listado +="</div>";
+         listado +="</div>";*/
+
+
+        listado += "<div class='proyecto col-md-5 col-xs-12'>";
+        listado += "<div class='row'>";
+        listado += "<div class='logo col-md-5 col-xs-12'>";
+        listado += "<img src='"+image+"'></div>";
+        listado += "<div class='informaProd col-md-7 col-xs-12'>";
+        listado += "<span> " + fecha + "</span>";
+        listado += "<div class='titulo'>";
+        listado += "<h3>" + titulo + "</h3>";
+        listado += "<p>" + nombre + " " + apellidos + "</p>";
+        listado += "</div>";
+       /* listado += "<div class='desc hidden-xs'>";
+       listado += "<p>" + descripcion + "</p>";
+        listado += "</div>";*/
+        listado += "<div class='irProyect'>";
+        listado += '<a class="btn" id="' + id + '"  href="jsp#/' + this.clase + '/mostrar/' + id + '">Leer mar</a>';
+        listado += "</div>";
+        listado += "</div>";
+        listado += "</div>";
+        listado += "</div>";
+
     }
+
+
+    listado += "</div>";
+
+
+    return listado;
+
+};
+
+proyectoView.prototype.getProyectosContenido = function (json) {
+
+
+
+    listado = "<div class='single-proyecto row'>";
+
+
+    id = json.id;
+    titulo = json.titulo;
+    imagen = json.portada;
+    memoria = json.memoria;
+    nombreA = json.obj_alumno.nombre;
+    apellidosA = json.obj_alumno.apellidos;
+    nombreT = json.obj_alumno.obj_tutor.nombre;
+    apellidosT = json.obj_alumno.obj_tutor.apellidos;
+    descripcion = json.descripcion;
+    tags = json.tags;
+    fecha = json.fecha;
+    ciclo = json.obj_alumno.obj_ciclo.nombre;
+    
+    listado = "<div class='row contenido-single'>";
+    listado += "<div class='col-md-4 single-titulo'><h1>"+titulo+"</h1></div>";
+    listado += "<div class='single-titulo-extra col-md-8'></div>";
+    listado += "<div class='row single-columnas'>";
+    listado += "<div class='col-md-8 single-infor'>";
+    listado += "<img src='"+imagen+"'><br/>";
+    listado += "<div class='descripcion-single'>";
+    listado += "<h3>Descripción</h3>";
+    listado += "<p>"+descripcion+"</p>";
+    listado += "</div>";
+
+
+    listado += "</div>";
+    listado += "<div class='col-md-4 single-extra-inf'>";
+    listado += "<h3>Información</h3>";
+    listado += "<div class='caja-extra-inf'>";
+    listado += "<p><span>Autor:</span><br/>"+nombreA +" "+ apellidosA+"</p>";
+    listado += "<p><span>Ciclo:</span><br/>"+ciclo+"</p>";
+    listado += "<p><span>Tutor de proyecto:</span><br/>"+nombreT +" "+ apellidosT+"</p>";
+    listado += "<p><span>Fecha:</span><br/>"+fecha+"</p>";
+    listado += "</div>";
+    listado += "<div class='seccion-memoria'>";
+    listado += "<h3>Memoria del proyecto</h3>";
+    listado += "<a href='"+memoria+"' target='_blank'><div class='single-memoria'>Descargar Memoria en .PDF <span class='glyphicon glyphicon-download-alt'></span></div></a>";
+    listado += "</div>";
+    listado += "</div>";
+    listado += "</div>";
+
+
 
     listado += "</div>";
     return listado;
-  
+
 };
 

@@ -1,27 +1,138 @@
 
+.row{
+    margin: 0 !important;
+    padding: 0 !important;
+}
 body{
-  background-color: #efefef;
+    background-color: #efefef;
 }
 
-
-#indexContenidoJsp{
+.footer{
+    background-color: gainsboro;
+    height: 90px;
+}
+.footer p{
+    text-align: center;
+    padding-top: 40px;
+}
+.contenido-derecha{
+    float: right;
     margin-top: 20px;
 }
+.contenido{
+    margin-top:60px;
+
+}
+
 
 .margen-superior{
     margin-top: 80px;
+    min-height: 420px;
 }
 .margen-superiorForm{
     margin-top: 70px;
     margin-left: 20px;
 }
 
-/* Navbar */
+/*menu izquierda*/
+.menu-izquierda{
+    background-color: #262D37;
+    height: 100%;
+    padding: 0;
+    float: left;
+    position: fixed;
+    margin-top: 80px;
 
-.navbar, .dropdown-menu{
-    background-color:#45525e;
 }
 
+.menu-izquierda h3{
+    color: white;
+    font-size: 18px;
+    margin-left: 28px;
+    margin-bottom: 15px;
+    text-shadow: 0px 2px 0px rgba(2, 0, 0, 1);
+}
+.menu-izquierda ul{
+    list-style: none;
+    padding: 0;
+}
+.menu-izquierda li {
+    padding: 15px;
+    padding-left: 30px;
+    width: 96%;
+    color: lightgray;
+    background-color: #3f4b5d;
+    border-bottom: 5px solid #2e3742;
+    margin-top: 2px;
+}
+.menu-izquierda li:hover {
+    background-color: #3b424b;
+    color: white;
+}
+.menu-izquierda a{
+    color:white;
+    text-decoration: none;
+}
+
+
+/**********Navbar ***********/
+/*topmenu*/
+.top-menu{
+    background-color: rgb(49, 49, 49);
+    height: 80px;
+    position: fixed;
+    z-index: 1;
+    width: 100% !important;
+}
+.brand{
+    text-align: center;
+    height: 80px;
+}
+.brand img{
+    width: 49%;
+    height: 100%;
+}
+
+.seccion{
+    height: 100%;
+    text-align: center;
+    padding-top: 30px;
+}
+.seccion:hover{
+    background-color: rgb(58, 58, 58);
+    border-bottom: 5px solid rgb(186, 27, 39);
+}
+
+.top-menu a{
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+.seccion a:hover, .seccion-log a:hover{
+    text-decoration: none;
+}
+.seccion-log{
+    height: 100%;
+    text-align: center;
+    padding-top: 30px;
+}
+.seccion-log p{
+    color: white;
+    font-size: 17px;
+}
+.seccion-log a{
+    color: rgb(186, 27, 39);
+    font-size: 17px;
+    font-weight: 100;
+}
+.ensanchador{
+    margin-right: 40px;
+}
+/**/
+
+.navbar /*.dropdown-menu*/{
+    background-color:#313131;
+}
 .dropdown-menu a:hover, .navbar a:hover{
     background-color:#5c6e7d !important;
 }
@@ -30,7 +141,8 @@ body{
 }
 
 
-/* Intro de la pagina de inicio */
+
+/*---- Intro de la pagina de inicio ***----*/
 .intro {
     position: relative;
     background: url(../../images/entrada.jpg) no-repeat center center;
@@ -39,27 +151,47 @@ body{
     padding: 370px 0 75px 0;
     color: white;
 }
-
-
 .informaInicio {
-margin-top: 10px;
+    margin-top: 10px;
 }
 
+
+.caja{
+    background-color: white;
+    min-height: 220px;
+    box-shadow: 0px 4px 0px #ccc;
+}
+.caja p{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.caja-titulo{
+    text-align: center;
+    background-color: #BE1622;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.caja ul{
+    list-style: none;
+}
 
 /*inicio de la pagina*/
 
 .cuerpo{
     width: 100%;
-    height: 600px;
-
-       
+    height: 600px;   
 }
-
+hr{
+    display:none;
+}
 
 /*formulario de entrada*/
 .formLogueo{
     margin-top: 20px;
-    background-color: #d6d6d6;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px #ccc;
     height: 320px;
     width: 420px;
     padding-left: 10px;
@@ -97,37 +229,28 @@ margin-top: 10px;
     margin-left: 20px;
 }
 
-
-/*PRINCIPAL*/
-.proyectosMostrar{
-    margin-top: 80px;
-    margin-left: 70px;
-   
-}.proyectoCaja{
-    margin-top: 30px;
-    margin-left: 10px;
-    
-}
-
-#cdawrap{
-    display: none;
-        
-}
-/*----------------------------------------*/
-
-
-
-
 /* Cabecera de las tablas */
 .panel-default > .panel-heading {
-    background-color:#74769d;
+    background-color:#BA1B27;
     color:white;
+}
+.orderAsc, .orderDesc{
+    color: white;
+}
+
+.orderAsc:hover, .orderDesc:hover{
+    color: lightgray;
+}
+
+input, select{
+    border-radius: 0px !important;
+    box-shadow: 0px 4px 0px gray;
 }
 
 th{
     min-width: 30px;
-    color: whitesmoke;
-    background-color: #8f91b0;
+    color: black;
+    background-color: #BA1B27;
 }
 
 .datepicker th{
@@ -135,3 +258,52 @@ th{
     color: black;
 }
 
+/*botonera superior list*/
+.botonera-superior-list{
+    margin: 15px 0 40px 0px !important;
+}
+.botonera-superior-list #selectFilteroperator{
+    display: none;
+}
+.boton-nuevo{
+    background-color: #BA1B27;
+    box-shadow: 0px 4px 0px #83151D;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.boton-nuevo:hover{
+    color: white;
+    text-decoration: none;
+    background-color: #E22130;
+
+}
+/*botonera tablas*/
+.btn{
+    margin-right: 5px;
+    box-shadow: 0px 4px 0px #83151D;
+    border-radius: 0px;
+    color: white;
+    background-color: #BA1B27;
+    border:none;
+    font-weight: bold;
+
+}
+.btn:hover{
+    background-color: #E22130;
+    color: white;
+}
+
+.pagination_link{
+    background-color: #BA1B27 !important;
+    font-weight: bold;
+    border:none !important;
+    box-shadow: 0px 4px 0px #83151D;
+    border-radius: 0px !important;
+
+}
+
+.btn-primary{
+    margin-left: 10px;
+}

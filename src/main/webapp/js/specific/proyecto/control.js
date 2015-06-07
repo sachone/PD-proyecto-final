@@ -29,52 +29,18 @@ proyectoControl.prototype.listaProyectos = function (place, oModel, oView) {
     $(place).empty();
     var oProyectoModel = oModel;
     var oProyectoView = oView;
-    data = oProyectoModel.setGenericOperation("getpage&rpp=1000","");
+    data = oProyectoModel.setGenericOperation("getpage&rpp=1000&order=fecha&ordervalue=desc","");
     listadoProyectos = oProyectoView.getProyectosList(data);
     $("#indexContenido").html(listadoProyectos);
 };
 
+proyectoControl.prototype.contenidoProyectos = function (place,id,oModel, oView) {
+    $(place).empty();
+    var oProyectoModel = oModel;
+    var oProyectoView = oView;
+    data = oProyectoModel.setGenericOperation("get&id="+id,"");
+    contenidoProyectos = oProyectoView.getProyectosContenido(data);
+    $("#indexContenido").html(contenidoProyectos);
+};
 
-/*proyectos*/
-var filename='http://tympanus.net/codrops/adpacks/demoadpacks.css?' + new Date().getTime();		
-var fileref=document.createElement("link");
-fileref.setAttribute("rel", "stylesheet");
-fileref.setAttribute("type", "text/css");
-fileref.setAttribute("href", filename);
-document.getElementsByTagName("head")[0].appendChild(fileref);
-
-var demoad = document.createElement('div');
-demoad.id = 'cdawrap';
-demoad.innerHTML = '<span id="cda-remove"></span>';
-document.getElementsByTagName('body')[0].appendChild(demoad);
-
-document.getElementById('cda-remove').addEventListener('click',function(e){
-	demoad.style.display = 'none';
-	e.preventDefault();
-});
-
-var bsa = document.createElement('script');
-bsa.type = 'text/javascript';
-bsa.async = true;
-bsa.id = '_carbonads_js';
-bsa.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=codrops';
-demoad.appendChild(bsa);
-
-
-  var thumb = $('img#thumb');        
-
-  new AjaxUpload('imageUpload', {
-    action: $('form#newHotnessForm').attr('action'),
-    name: 'image',
-    onSubmit: function(file, extension) {
-      $('div.preview').addClass('loading');
-    },
-    onComplete: function(file, response) {
-      thumb.load(function(){
-        $('div.preview').removeClass('loading');
-        thumb.unbind();
-      });
-      thumb.attr('src', response);
-    }
-  });
   

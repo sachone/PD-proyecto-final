@@ -12,6 +12,14 @@
         <servlet-name>FileUploadHandler</servlet-name>
         <servlet-class>net.daw.control.FileUploadHandler</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>subirPortada</servlet-name>
+        <servlet-class>net.daw.imagenes.subir1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>subir</servlet-name>
+        <servlet-class>net.daw.imagenes.subir</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlJson</servlet-name>
         <url-pattern>/json</url-pattern>
@@ -23,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>FileUploadHandler</servlet-name>
         <url-pattern>/FileUploadHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>subir</servlet-name>
+        <url-pattern>/subir</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

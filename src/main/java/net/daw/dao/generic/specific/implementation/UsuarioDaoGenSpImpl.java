@@ -31,14 +31,14 @@ public class UsuarioDaoGenSpImpl extends TableDaoGenImpl<UsuarioBeanGenSpImpl> {
     public UsuarioBeanGenSpImpl getFromLogin(UsuarioBeanGenSpImpl oUsuario) throws Exception {
         try {
 
-            String strId = oMysql.getId("usuario", "login", oUsuario.getLogin());
+            String strId = oMysql.getId("Usuario", "login", oUsuario.getLogin());
             if (strId == null) {
                 oUsuario.setId(0);
             } else {
                 Integer intId = Integer.parseInt(strId);
                 oUsuario.setId(intId);
                 String pass = oUsuario.getPassword();
-                oUsuario.setPassword(oMysql.getOne("usuario", "password", oUsuario.getId()));
+                oUsuario.setPassword(oMysql.getOne("Usuario", "password", oUsuario.getId()));
                 if (!pass.equals(oUsuario.getPassword())) {
                     oUsuario.setId(0);
                 }

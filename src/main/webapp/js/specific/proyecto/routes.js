@@ -92,4 +92,12 @@ function fProyectoRoutes() {
         $('#indexContenidoJsp').empty();
         return false;
     });
+    
+    Path.map("#/proyecto/mostrar/:id").to(function () {
+        $('#indexContenidoJsp').spinner();
+        var paramsObject = param().defaultizeUrlObjectParameters(param().getUrlObjectFromUrlString(this.params['url']));
+        oProyectoControl.contenidoProyectos($('#indexContenido'), paramsObject['id'], oProyectoModel, oProyectoView);
+        $('#indexContenidoJsp').empty();
+        return false;
+    });
 }

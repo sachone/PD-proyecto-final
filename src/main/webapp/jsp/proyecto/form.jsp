@@ -43,29 +43,41 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label" for="descripcion">Descripción </label> 
+        <label class="col-sm-2 control-label" for="descripcion">Descripción: </label> 
         <div class="col-sm-6">              
             <textarea rows="5" cols="1000" id="descripcion" class="form-control" name="descripcion"></textarea>
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="nota">Nota: </label> 
+        <div class="col-sm-4">              
+            <input type="text" id="nota" class="form-control"  name="nota" size="15" placeholder="Nota del proyecto" />
+        </div>
+    </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label" for="Tags">Tags </label> 
+        <label class="col-sm-2 control-label" for="Tags">Tags: </label> 
         <div class="col-sm-4">              
             <input type="text" id="tags" class="form-control"  name="tags" size="15" placeholder="Pon etiquetas separadas por comas" />
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label"  for="fecha">Fecha</label>
+        <label class="col-sm-2 control-label"  for="fecha">Fecha:</label>
         <div class="col-sm-2">
             <input type="text"  class="form-control"  id="fecha" name="fecha" size="15" placeholder="Fecha del alta" />
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-2 control-label"  for="portada">Portada</label>
+        <label class="col-sm-2 control-label"  for="portada">Portada:</label>
         <div class="col-sm-5">
             <input type="text"  class="form-control"  id="portada" name="portada" size="15" placeholder="url de la portada" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"  for="memoria">Memoria:</label>
+        <div class="col-sm-5">
+            <input type="text"  class="form-control"  id="memoria" name="memoria" size="15" placeholder="url de la memoria" />
         </div>
     </div>
 
@@ -131,6 +143,17 @@
                                 notEmpty: {
                                     message: 'Debe introducir una descripcion'
                                 }
+                                
+                            }
+                        },
+                        nota: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Debe introducir una nota'
+                                },
+                                integer: {
+                                    message: 'La  nota debe ser un entero'
+                                }
                             }
                         },
                         tags: {
@@ -156,6 +179,14 @@
                             validators: {
                                 notEmpty: {
                                     message: 'Debe introducir una Url de la imagen'
+                                }
+                            }
+
+                        },
+                        memoria: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Debe introducir una Url de la memoria'
                                 }
                             }
 

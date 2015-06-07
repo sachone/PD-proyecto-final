@@ -28,12 +28,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.daw.control.operation.generic.specific.implementation.AlumnoControlOperationGenSpImpl;
+import net.daw.control.operation.generic.specific.implementation.CicloControlOperationGenSpImpl;
 import net.daw.control.operation.generic.specific.implementation.ProyectoControlOperationGenSpImpl;
 import net.daw.control.operation.generic.specific.implementation.TipousuarioControlOperationGenSpImpl;
+import net.daw.control.operation.generic.specific.implementation.TutorControlOperationGenSpImpl;
 import net.daw.control.operation.generic.specific.implementation.UsuarioControlOperationGenSpImpl;
+import net.daw.control.operation.publicinterface.ControlOperationInterface;
 import net.daw.control.route.generic.specific.implementation.AlumnoControlRouteGenSpImpl;
+import net.daw.control.route.generic.specific.implementation.CicloControlRouteGenSpImpl;
 import net.daw.control.route.generic.specific.implementation.ProyectoControlRouteGenSpImpl;
 import net.daw.control.route.generic.specific.implementation.TipousuarioControlRouteGenSpImpl;
+import net.daw.control.route.generic.specific.implementation.TutorControlRouteGenSpImpl;
 import net.daw.control.route.generic.specific.implementation.UsuarioControlRouteGenSpImpl;
 import net.daw.helper.EstadoHelper;
 import net.daw.helper.EstadoHelper.Tipo_estado;
@@ -103,13 +108,43 @@ public class JsonControl extends HttpServlet {
                         AlumnoControlOperationGenSpImpl oAlumnoControlOperation = new AlumnoControlOperationGenSpImpl(request);
                         jsonResult = oAlumnoRoute.execute(request, oAlumnoControlOperation);
                         break;
+                    case "tutor":
+                        TutorControlRouteGenSpImpl oTutorRoute = new TutorControlRouteGenSpImpl();
+                        TutorControlOperationGenSpImpl oTutorControlOperation = new TutorControlOperationGenSpImpl(request);
+                        jsonResult = oTutorRoute.execute(request, oTutorControlOperation);
+                        break;
+                    case "ciclo":
+                        CicloControlRouteGenSpImpl oCicloRoute = new CicloControlRouteGenSpImpl();
+                        CicloControlOperationGenSpImpl oCicloControlOperation = new CicloControlOperationGenSpImpl(request);
+                        jsonResult = oCicloRoute.execute(request, oCicloControlOperation);
+                        break;
 
                     default:
                         ExceptionBooster.boost(new Exception(this.getClass().getName() + ":processRequest ERROR: no such operation"));
                 }
             } else {
-                
-                jsonResult = "{\"error\" : \"No active server session\"}";
+                if (ParameterCooker.prepareOperation(request) != "get" || ParameterCooker.prepareOperation(request) != "getpage" ) {
+                    jsonResult = "{\"error\" : \"No active server session\"}";
+
+                }
+                switch (ParameterCooker.prepareObject(request)) {
+                    case "proyecto":
+                        String operation = ParameterCooker.prepareOperation(request);
+                        ProyectoControlOperationGenSpImpl oProyectoControlOperation = new ProyectoControlOperationGenSpImpl(request);
+                        ControlOperationInterface oControl = oProyectoControlOperation;
+
+                        switch (operation) {
+                            case "get":
+                                jsonResult = oControl.get(request);
+                                break;
+                            case "getpage":
+                                jsonResult = oControl.getpage(request);
+                                break;
+                        }
+                        break;
+
+                }
+
             }
             if (jsonResult.equals("error")) {
                 Map<String, String> data = new HashMap<>();

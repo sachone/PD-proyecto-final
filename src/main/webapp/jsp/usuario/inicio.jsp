@@ -34,50 +34,47 @@
     
 </div>
 
-<div class="row informaInicio">
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>¿Qué es <%=AppInformationHelper.getAppName()%>?</h3>
-                <p>Es una aplicación didáctica para aprender a organizar y desarrollar 
-                    aplicaciones AJAX. Está pensado para soportar mantenimientos 
-                    CRUDL (create remove update delete list).</p>
-            </div>
-            <div class="col-md-6">
-                <h3>¿Para qué sirve?</h3>
-                <p>Se trata de una aplicación de carácter didáctico. 
-                    Se ha estructurado siguiendo un modelo MVC que permita a los alumnos 
-                    conocer un referente para diseñar en un futuro sus proyectos.                    
-                </p>
-            </div>    
+<div class="infoInicio row">
+    <!-- <h3 class="col-md-12">Proyectos con mejor nota</h3>
+    <div id="bestProyects" class="col-md-4"></div> -->
+    <div class="parte1 col-md-4">
+        <div class="caja">
+            <h4 class="caja-titulo">¿Que es proyectos DAW?</h4>
+            <p>Es una aplicación desarrollada en Java y javaScript que utiliza AJAX parw la comunicación entre cliente
+             y servidor y cuenta con una licencia <%=EstadoHelper.getLicenciaLink()%></p>
         </div>
-        <div class="row">    
-            <div class="col-md-6">
-                <h3>¿Quién la ha desarrollado?</h3>
-                <p>La ha desarrollado <%=EstadoHelper.getAutor()%>,
-                    profesor de DAW en el CPIFP Ausiàs March de Valencia (Spain).
-                    Puedes contactar en <%=EstadoHelper.getMailAutor()%>.</p>
-            </div> 
-            <div class="col-md-6">
-                <h3>¿Qué licencia tiene?</h3>
-                <p>La he liberado con licencia <%=EstadoHelper.getLicenciaLink()%></p>
-            </div>
-
-        </div>
+        
     </div>
-    <div class="col-md-4">
-        <h3>¿Cuáles son sus características?</h3>
-        <ul>
-            <li>Es un desarrollo didáctico</li>
-            <li>Estructura de servidor MVC por niveles sin frameworks</li> 
+    <div class="parte2 col-md-4">
+        <div class="caja">
+            <h4 class="caja-titulo">¿Que hace?</h4>
+            <p>Las principales características de Proyectos Daw es poder tener una gestión facil y sencilla de los proyectos
+             que los alumnos han hecho y además permitir a todo el que quiera poder ver información basica del proyecto 
+            así como su memoria.</p>
+        </div>
+        
+    </div>
+    <div class="parte3 col-md-4">
+        <div class="caja">
+            <h4 class="caja-titulo">¿Cuales son sus carecterísticas?</h4>
+            <ul>
             <li>Servidor escrito en Java (servlets y jsp)</li>  
-            <li>Dos controladores, uno para servir jsp y otro para servir json</li>  
-            <li>Cliente AJAX con Javascript y JQuery</li>              
+            <li>Dos controladores, uno para servir jsp y otro para servir json</li>               
             <li>Cliente desarrollado sobre Bootstrap responsivo</li>
             <li>Acceso a datos (base de datos MySQL) mediante clases de negocio y DAO</li>
             <li>Mantenimientos paginados</li>
-            <li>Ajax Stock soporta Relaciones 1:M</li>
-            <li>Ajax Stock soporta Relaciones M:M</li>
+            <li>Soporta Relaciones 1:M y M:M</li>
+
         </ul>
+        </div>
+       
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+            
+
+           
+        </script>
